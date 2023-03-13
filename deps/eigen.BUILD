@@ -36,6 +36,8 @@ EIGEN_FILES = [
     "unsupported/Eigen/SpecialFunctions",
     "unsupported/Eigen/src/MatrixFunctions/**",
     "unsupported/Eigen/src/SpecialFunctions/**",
+    "unsupported/Eigen/src/Splines",
+    "unsupported/Eigen/**",
 ]
 
 # List of files picked up by glob but actually part of another target.

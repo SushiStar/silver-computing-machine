@@ -1,0 +1,6 @@
+
+build --cxxopt="-std=c++17"
+build --host_cxxopt="-std=c++17"
+build --copt="-Werror"
+build --cxxopt="-Werror"
+build --show_timestamps
