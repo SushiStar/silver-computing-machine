@@ -44,36 +44,28 @@ void test1() {
 
   double x_left{0}, x_right{6};
 
-  // printf("%.3f\n", computeRatio(0.53, x_left, x_right));
-
-  // std::cout << sp(computeRatio(0.53, x_left, x_right)).coeff(0) << std::endl;
-  std::cout << sp.derivatives(computeRatio(0.53, x_left, x_right), 0)(0)
-            << std::endl;
-
-  // printf("%.3f %.3f\n", 0.53,
-  // sp.derivatives(computeRatio(0.53, x_left, x_right), 1)(0));
-  assert(std::abs(sp.derivatives(computeRatio(0.53, x_left, x_right), 0)(0) -
+  assert(std::abs(sp.derivatives(computeRatio(0.53, x_left, x_right), 0)(1) -
                   1.06) < 1e-8);
 
-  assert(std::abs(sp.derivatives(computeRatio(1.0, x_left, x_right), 0)(0) -
+  assert(std::abs(sp.derivatives(computeRatio(1.0, x_left, x_right), 0)(1) -
                   2.0) < 1e-8);
 
-  assert(std::abs(sp.derivatives(computeRatio(1.1, x_left, x_right), 0)(0) -
+  assert(std::abs(sp.derivatives(computeRatio(1.1, x_left, x_right), 0)(1) -
                   1.8) < 1e-8);
 
-  assert(std::abs(sp.derivatives(computeRatio(1.5, x_left, x_right), 0)(0) -
+  assert(std::abs(sp.derivatives(computeRatio(1.5, x_left, x_right), 0)(1) -
                   1.0) < 1e-8);
 
-  assert(std::abs(sp.derivatives(computeRatio(3.0, x_left, x_right), 0)(0) -
+  assert(std::abs(sp.derivatives(computeRatio(3.0, x_left, x_right), 0)(1) -
                   -2.0) < 1e-8);
 
-  assert(std::abs(sp.derivatives(computeRatio(3.5, x_left, x_right), 0)(0) -
+  assert(std::abs(sp.derivatives(computeRatio(3.5, x_left, x_right), 0)(1) -
                   -1.0) < 1e-8);
 
-  assert(std::abs(sp.derivatives(computeRatio(4.2, x_left, x_right), 0)(0) -
+  assert(std::abs(sp.derivatives(computeRatio(4.2, x_left, x_right), 0)(1) -
                   0.4) < 1e-8);
 
-  assert(std::abs(sp.derivatives(computeRatio(5.7, x_left, x_right), 0)(0) -
+  assert(std::abs(sp.derivatives(computeRatio(5.7, x_left, x_right), 0)(1) -
                   0.6) < 1e-8);
 }
 
@@ -111,8 +103,7 @@ class SplineFunction {
 void test2() {
   Eigen::MatrixXd points{generateSegments()};
   SplineFunction sp(points.row(0).transpose(), points.row(1).transpose());
-  std::cout << sp(0.53) << std::endl;
-  printf("%.3f, %.3f\n", sp(0.3), 1.06);
+  printf("%.3f, %.3f\n", sp(0.53), 1.06);
   printf("%.3f, %.3f\n", sp(1.0), 2.0);
   printf("%.3f, %.3f\n", sp(1.1), 1.8);
   printf("%.3f, %.3f\n", sp(1.5), 1.0);
@@ -125,6 +116,6 @@ void test2() {
 }  // namespace spline
 
 int main() {
-  spline::test2();
+  spline::test1();
   return 0;
 }
