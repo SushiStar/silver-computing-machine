@@ -1,5 +1,6 @@
 {
     "coc.preferences.formatOnSave": true,
+    "inlayHint.enable": false,
     "languageserver": {
         "clangd": {
             "command": "clangd",
