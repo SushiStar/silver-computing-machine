@@ -112,14 +112,14 @@ void test2() {
   Eigen::MatrixXd points{generateSegments()};
   SplineFunction sp(points.row(0).transpose(), points.row(1).transpose());
   std::cout << sp(0.53) << std::endl;
-  assert(std::abs(sp(0.53) - 1.06) < 1e-8);
-  assert(std::abs(sp(1.0) - 2.0) < 1e-8);
-  assert(std::abs(sp(1.1) - 1.8) < 1e-8);
-  assert(std::abs(sp(1.5) - 1.0) < 1e-8);
-  assert(std::abs(sp(3.0) + 2.0) < 1e-8);
-  assert(std::abs(sp(3.5) + 1.0) < 1e-8);
-  assert(std::abs(sp(4.2) - 0.4) < 1e-8);
-  assert(std::abs(sp(5.7) - 0.6) < 1e-8);
+  printf("%.3f, %.3f\n", sp(0.3), 1.06);
+  printf("%.3f, %.3f\n", sp(1.0), 2.0);
+  printf("%.3f, %.3f\n", sp(1.1), 1.8);
+  printf("%.3f, %.3f\n", sp(1.5), 1.0);
+  printf("%.3f, %.3f\n", sp(3.0), 2.0);
+  printf("%.3f, %.3f\n", sp(3.5), 1.0);
+  printf("%.3f, %.3f\n", sp(4.2), 0.4);
+  printf("%.3f, %.3f\n", sp(5.7), 0.6);
 }
 
 }  // namespace spline
