@@ -4,3 +4,8 @@ cc_binary(
     name = "primitive_default_construction",
     srcs = ['primitive_default_construction.cc'],
 )
+
+cc_binary(
+    name = "base_class_ref",
+    srcs = ['base_class_ref.cc'],
+)
