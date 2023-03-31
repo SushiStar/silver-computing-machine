@@ -1,23 +1,8 @@
 {
     "coc.preferences.formatOnSave": true,
     "inlayHint.enable": false,
+    "clangd.disableDiagnostics": true,
     "languageserver": {
-        "clangd": {
-            "command": "clangd",
-            "filetypes": [
-                "c",
-                "cpp",
-                "cc",
-                "hpp",
-                "h"
-            ],
-            "rootPatterns": [
-                ".ccls",
-                "compile_commands.json",
-                ".vim",
-                ".git"
-            ]
-        },
         "ccls": {
             "command": "ccls",
             "filetypes": [

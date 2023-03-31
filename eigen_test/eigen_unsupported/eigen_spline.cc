@@ -8,27 +8,36 @@
 namespace spline {
 
 Eigen::Matrix2Xd generateSegments() {
-  Eigen::Matrix2Xd segments(2, 7);
-  segments(0, 0) = 0.0;
-  segments(1, 0) = 0.0;
+  Eigen::Matrix2Xd segments(2, 10);
+  segments(0, 0) = -2.0;
+  segments(1, 0) = -5.0;
 
-  segments(0, 1) = 1.0;
-  segments(1, 1) = 2.0;
+  segments(0, 1) = -1.0;
+  segments(1, 1) = 4.0;
 
-  segments(0, 2) = 2.0;
+  segments(0, 2) = 0.0;
   segments(1, 2) = 0.0;
 
-  segments(0, 3) = 3.0;
-  segments(1, 3) = -2.0;
+  segments(0, 3) = 1.0;
+  segments(1, 3) = 2.0;
 
-  segments(0, 4) = 4.0;
+  segments(0, 4) = 2.0;
   segments(1, 4) = 0.0;
 
-  segments(0, 5) = 5.0;
-  segments(1, 5) = 2.0;
+  segments(0, 5) = 3.0;
+  segments(1, 5) = -2.0;
 
-  segments(0, 6) = 6.0;
+  segments(0, 6) = 4.0;
   segments(1, 6) = 0.0;
+
+  segments(0, 7) = 5.0;
+  segments(1, 7) = 2.0;
+
+  segments(0, 8) = 6.0;
+  segments(1, 8) = 0.0;
+
+  segments(0, 9) = 7.0;
+  segments(1, 9) = -4.0;
 
   return segments;
 }
@@ -76,9 +85,7 @@ class SplineFunction {
         x_max(x_vec.maxCoeff()),
         // Spline fitting here. X values are scaled down to [0, 1] for this.
         spline_(Eigen::SplineFitting<Eigen::Spline<double, 1>>::Interpolate(
-            y_vec.transpose(),
-            // No more than cubic spline, but accept short vectors.
-            1, scaled_values(x_vec))) {}
+            y_vec.transpose(), 1, scaled_values(x_vec))) {}
 
   double operator()(double x) const {
     // x values need to be scaled down in extraction as well.
@@ -107,15 +114,39 @@ void test2() {
   printf("%.3f, %.3f\n", sp(1.0), 2.0);
   printf("%.3f, %.3f\n", sp(1.1), 1.8);
   printf("%.3f, %.3f\n", sp(1.5), 1.0);
-  printf("%.3f, %.3f\n", sp(3.0), 2.0);
-  printf("%.3f, %.3f\n", sp(3.5), 1.0);
+  printf("%.3f, %.3f\n", sp(3.0), -2.0);
+  printf("%.3f, %.3f\n", sp(3.5), -1.0);
   printf("%.3f, %.3f\n", sp(4.2), 0.4);
   printf("%.3f, %.3f\n", sp(5.7), 0.6);
+}
+
+void test3() {
+  // Conclusion: linear extrapolation for values outside of the range.
+  Eigen::MatrixXd points{generateSegments()};
+  SplineFunction sp(points.row(0).transpose(), points.row(1).transpose());
+
+  // for (int i = -4; i < 9; ++i) {
+  // printf("%.3f, %.3f\n", static_cast<double>(i), sp(i));
+  // }
+  /*
+   * printf("%.3f, %.3f\n", sp(-1.5), -0.5);
+   * printf("%.3f, %.3f\n", sp(0.5), 1.0);
+   * printf("%.3f, %.3f\n", sp(1.5), 1.0);
+   * printf("%.3f, %.3f\n", sp(2.5), -1.0);
+   */
+
+  printf("%.3f, %.3f\n", sp(-2.5), -0.5);
+  printf("%.3f, %.3f\n", sp(-3.0), -0.5);
+  printf("%.3f, %.3f\n", sp(-3.5), -0.5);
+
+  printf("%.3f, %.3f\n", sp(7.5), -0.5);
+  printf("%.3f, %.3f\n", sp(8.0), -0.5);
+  printf("%.3f, %.3f\n", sp(8.3), -0.5);
 }
 
 }  // namespace spline
 
 int main() {
-  spline::test1();
+  spline::test3();
   return 0;
 }

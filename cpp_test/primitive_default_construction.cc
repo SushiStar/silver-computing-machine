@@ -2,27 +2,27 @@
 #include <vector>
 
 class Foo {
-public:
+ public:
   // Foo() : a_(0), b_(0) {}
   Foo() = default;
 
   const double a() const { return a_; }
   const int b() const { return b_; }
 
-private:
+ private:
   double a_ = 0;
   int b_ = 0;
 };
 
 // Create another class Bar that has a Foo member.
 class Bar {
-public:
+ public:
   Bar() = default;
 
   const double a() const { return f_.a(); }
   const int b() const { return f_.b(); }
 
-private:
+ private:
   Foo f_;
 };
 
@@ -34,15 +34,15 @@ private:
  * The default constructor of Foo will initialize a_ and b_ to 0.
  */
 class Baz {
-public:
+ public:
   Baz() = default;
 
   const double a() const { return bars_[0].a(); }
   const int b() const { return bars_[0].b(); }
 
-private:
+ private:
   std::vector<Bar> bars_;
-}; // class Baz
+};  // class Baz
 
 int main() {
   Foo f;
