@@ -19,3 +19,11 @@ cc_binary(
         "@eigen",
     ],
 )
+
+cc_binary(
+    name = "eigen_vector_conversion",
+    srcs = ["eigen_vector_conversion.cc"],
+    deps = [
+        "@eigen",
+    ],
+)

@@ -9,3 +9,23 @@ cc_binary(
     name = "const_ref_cast",
     srcs = ["const_ref_cast.cc"],
 )
+
+cc_binary(
+    name = "base_class_ref",
+    srcs = ["base_class_ref.cc"],
+)
+
+cc_binary(
+    name = "stl_test",
+    srcs = ["stl_test.cc"],
+)
+
+cc_binary (
+    name = "copy_lambda",
+    srcs = ["copy_lambda.cc"],
+)
+
+cc_binary (
+    name = "binary_search",
+    srcs = ["binary_search.cc"],
+)
