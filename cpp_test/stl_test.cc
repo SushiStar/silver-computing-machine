@@ -3,6 +3,8 @@
 #include <string>
 
 int main() {
-  std::cout << std::boolalpha << true << std::endl;
+  bool a = true;
+  a &= false;
+  std::cout << std::boolalpha << a << std::endl;
   return 0;
 }

@@ -78,28 +78,47 @@ void printv(const std::vector<std::vector<double>>& v) {
   }
 }
 
+/*
+ * int main() {
+ *   Eigen::MatrixXd m(3, 3);
+ *   m << 1, 2, 3, 4, 5, 6, 7, 8, 9;
+ *   std::vector<std::vector<double>> v(3, std::vector<double>(3, 0));
+ *
+ *   printf("before:\n");
+ *   printv(v);
+ *
+ *   converter(m, v);
+ *   printf("after:\n");
+ *   printv(v);
+ *
+ *   Eigen::VectorXd v1(3);
+ *   v1 << 1, 2, 3;
+ *   std::vector<std::vector<double>> v2(1, std::vector<double>(3, 0));
+ *
+ *   printf("before:\n");
+ *   printv(v2);
+ *
+ *   converter(v1, v2);
+ *   printf("after:\n");
+ *   printv(v2);
+ *
+ *   return 0;
+ * }
+ */
+
 int main() {
-  Eigen::MatrixXd m(3, 3);
-  m << 1, 2, 3, 4, 5, 6, 7, 8, 9;
-  std::vector<std::vector<double>> v(3, std::vector<double>(3, 0));
-
-  printf("before:\n");
-  printv(v);
-
-  converter(m, v);
-  printf("after:\n");
-  printv(v);
-
   Eigen::VectorXd v1(3);
   v1 << 1, 2, 3;
-  std::vector<std::vector<double>> v2(1, std::vector<double>(3, 0));
+  Eigen::VectorXd v2(3);
+  v2 << 1, 2, 1;
+  auto v3 = v1.cwiseProduct(v2);
 
-  printf("before:\n");
-  printv(v2);
+  std::cout << v1 << "\n\n";
+  std::cout << v3 << "\n\n";
 
-  converter(v1, v2);
-  printf("after:\n");
-  printv(v2);
 
-  return 0;
+    // Eigen::VectorXd v1(3);
+    // v1 << 1, 4, 9;
+    // auto v2 = v1.cwiseSqrt();
+    // std::cout << v2;
 }

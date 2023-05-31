@@ -4,7 +4,7 @@
 namespace SomeSpace {
 // do useless thing
 void Bar() {
-  // auto v = RandomVector();
+  auto v = RandomVector();
   return;
 }
 

@@ -29,3 +29,8 @@ cc_binary (
     name = "binary_search",
     srcs = ["binary_search.cc"],
 )
+
+cc_binary (
+    name = "reference_hack",
+    srcs = ["reference_hack.cc"],
+)
