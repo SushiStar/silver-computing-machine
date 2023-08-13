@@ -1,3 +1,4 @@
+#include <future>
 #include <iostream>
 #include <thread>
 
@@ -20,6 +21,7 @@ int main() {
   // background_task f;
   // std::thread my_thread(f);
 
-  std::thread t(hello);
-  t.join();  // This cause the main thread to wait for the thread t to finish
+  // std::thread t(hello);
+  // t.join();  // This cause the main thread to wait for the thread t to finish
+  std::future<void> f = std::async(hello);
 }
