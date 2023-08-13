@@ -34,3 +34,8 @@ cc_binary (
     name = "reference_hack",
     srcs = ["reference_hack.cc"],
 )
+
+cc_binary (
+    name = "copy_elision",
+    srcs = ["copy_elision.cc"],
+)
