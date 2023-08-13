@@ -5,3 +5,13 @@ cc_binary(
     srcs = ["template_class_test.cc"],
 )
 
+cc_binary(
+    name = "perfect_forward",
+    srcs = ["perfect_forward.cc"],
+)
+
+cc_binary(
+    name = "parameter_pack",
+    srcs = ["parameter_pack.cc"],
+)
+
