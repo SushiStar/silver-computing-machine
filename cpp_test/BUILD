@@ -39,3 +39,8 @@ cc_binary (
     name = "copy_elision",
     srcs = ["copy_elision.cc"],
 )
+
+cc_binary (
+    name = "shared_mutex",
+    srcs = ["shared_mutex.cc"],
+)
