@@ -13,5 +13,6 @@ cc_binary(
 cc_binary(
     name = "parameter_pack",
     srcs = ["parameter_pack.cc"],
+    copts = ["-std=c++17", "-Wall", "-Werror", "-O3"],
 )
 
