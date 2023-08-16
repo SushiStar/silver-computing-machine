@@ -11,3 +11,9 @@ cc_binary(
 #    srcs = ["execution_policy.cc"],
 #    linkopts = ["-ltbb"],
 #)
+
+cc_binary (
+    name = "shared_mutex",
+    srcs = ["shared_mutex.cc"],
+    linkopts = ["-pthread"],
+)
