@@ -40,3 +40,8 @@ cc_binary (
     srcs = ["copy_elision.cc"],
 )
 
+cc_binary (
+    name = "value_init",
+    srcs = ["value_init.cc"],
+)
+
